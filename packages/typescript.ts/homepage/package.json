@@ -1,0 +1,23 @@
+{
+    "name": "@nyar/typescript-homepage",
+    "version": "0.1.0",
+    "private": true,
+    "type": "module",
+    "description": "Homepage for @nyar/typescript — built with the VMZ framework",
+    "scripts": {
+        "dev": "vmz dev .",
+        "build": "vmz build .",
+        "check": "vmz check . && vmz document check . --strict"
+    },
+    "dependencies": {
+        "@vmz/core": "^0.3.18",
+        "@vmz/plugin-markdown-it": "^0.3.18"
+    },
+    "devDependencies": {
+        "@vmz/vmz": "^0.3.18",
+        "typescript": "^5.9.0"
+    },
+    "engines": {
+        "node": ">=24.12.0"
+    }
+}

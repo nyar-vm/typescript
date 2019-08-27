@@ -1,0 +1,48 @@
+{
+    "name": "@nyar/typescript-harness",
+    "version": "0.1.0",
+    "description": "TypeScript diagnostics and tuning harness over @nyar/typescript",
+    "type": "module",
+    "license": "AGPL-3.0-only",
+    "main": "./dist/index.js",
+    "exports": {
+        ".": "./dist/index.js",
+        "./cli": "./dist/cli.js"
+    },
+    "bin": {
+        "typescript-harness": "bin/typescript-harness.mjs"
+    },
+    "files": [
+        "bin",
+        "dist",
+        "src",
+        "locales",
+        "readme.md"
+    ],
+    "dependencies": {
+        "@nyar/typescript": "workspace:*",
+        "@vmz/commander": "^0.3.18"
+    },
+    "optionalDependencies": {
+        "@nyar/typescript-darwin-arm64": "workspace:*",
+        "@nyar/typescript-darwin-x64": "workspace:*",
+        "@nyar/typescript-linux-x64": "workspace:*",
+        "@nyar/typescript-win32-x64": "workspace:*"
+    },
+    "scripts": {
+        "build": "node ../../../../scripts/build-npm-package-js.mjs packages/typescript.ts/packages/typescript-harness",
+        "prepack": "node ../../../../scripts/build-npm-package-js.mjs packages/typescript.ts/packages/typescript-harness && node ../../../../scripts/prepare-npm-publish.mjs"
+    },
+    "engines": {
+        "node": ">=22.18.0"
+    },
+    "keywords": ["typescript", "harness", "diagnostics", "tuning"],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nyar-vm/typescript.git",
+        "directory": "packages/typescript.ts/packages/typescript-harness"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}

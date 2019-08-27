@@ -1,0 +1,23 @@
+[package]
+name = "typescript-napi"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "TypeScript Node-API export library: parsing, lexing and CST formatting over Boost `language.typescript`"
+
+[lib]
+name = "typescript_napi"
+path = "src/lib.rs"
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+language-typescript = { workspace = true }
+data-text-core = { workspace = true }
+data-text-typescript = { workspace = true }
+napi = { workspace = true }
+napi-derive = { workspace = true }
+
+[build-dependencies]
+napi-build = { workspace = true }

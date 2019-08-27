@@ -1,0 +1,9 @@
+{
+    "cli.intro": "TypeScript language services: parse, tokens, diagnostics and CST formatting.",
+    "cli.cmd.version": "Print the typescript-napi binding version.",
+    "cli.cmd.parse": "Parse a TypeScript file and report the syntax tree.",
+    "cli.cmd.tokens": "List lexical tokens with byte spans.",
+    "cli.cmd.check": "Report parser diagnostics for one or more TypeScript files.",
+    "cli.cmd.format": "Format a TypeScript file through the Boost CST formatter.",
+    "cli.opt.json": "Print machine-readable JSON."
+}

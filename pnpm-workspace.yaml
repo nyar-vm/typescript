@@ -1,0 +1,5 @@
+packages:
+  - 'packages/*'
+  - 'packages/typescript.ts/platforms/*'
+  - 'packages/typescript.ts/packages/*'
+  - 'packages/typescript.ts/homepage'

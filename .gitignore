@@ -1,0 +1,30 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+
+# Node
+dist/
+cache/
+.cache/
+node_modules/
+
+# Rust
+target/
+.cargo/config.toml
+
+# ASM
+*.exe
+*.pdb
+*.txt
+*.log
+
+
+# Python
+*.pyc

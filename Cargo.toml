@@ -1,0 +1,24 @@
+[workspace]
+resolver = "2"
+
+members = [
+    "packages/typescript.rs/typescript-npai",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+authors = ["Nyar Team"]
+license = "AGPL-3.0-only"
+repository = "https://github.com/nyar-vm/typescript"
+
+[workspace.dependencies]
+# The TypeScript language implementation lives in Boost `language.typescript` (parser in `data.text.typescript`).
+# This repository owns only the Node-API export layer.
+language-typescript = { git = "https://github.com/oovm/boost.rs", rev = "08b77a39e67b5a074a05f0a8ee5269670f336f4a" }
+data-text-core = { git = "https://github.com/oovm/boost.rs", rev = "08b77a39e67b5a074a05f0a8ee5269670f336f4a" }
+data-text-typescript = { git = "https://github.com/oovm/boost.rs", rev = "08b77a39e67b5a074a05f0a8ee5269670f336f4a" }
+
+napi = { version = "3.16.2", default-features = true, features = ["napi4"] }
+napi-derive = "3.7.1"
+napi-build = "2.6.0"

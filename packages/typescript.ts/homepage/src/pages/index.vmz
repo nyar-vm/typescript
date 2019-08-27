@@ -1,0 +1,290 @@
+<template>
+    <main class="page">
+        <header class="bar">
+            <span class="brand">TypeScript</span>
+            <nav class="bar__nav">
+                <a href="/d/">Docs</a>
+                <a href="#commands">Commands</a>
+                <a href="#api">API</a>
+                <a href="/d/zh-hans/">简体中文</a>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <p class="kicker">
+                <span class="dot" />
+                {{ kicker }}
+            </p>
+            <h1>
+                {{ titleLead }}
+                <br />
+                <em>{{ titleEm }}</em>
+            </h1>
+            <p class="lede">
+                {{ lede }}
+            </p>
+            <div class="actions">
+                <a class="button button--primary" href="/d/">Get started</a>
+                <a class="button button--ghost" href="https://github.com/nyar-vm/typescript">GitHub</a>
+            </div>
+            <pre class="install"><code>npm install @nyar/typescript</code></pre>
+        </section>
+
+        <section id="commands" class="block">
+            <h2>One binding, four commands</h2>
+            <div class="grid">
+                <article v-for="command in commands" :key="command.name" class="card">
+                    <code class="card__cmd">{{ command.line }}</code>
+                    <p>{{ command.description }}</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="api" class="block block--split">
+            <div>
+                <h2>Typed at the edge</h2>
+                <p>
+                    The npm package is a thin surface over the <code>typescript-napi</code> addon.
+                    Parsing, tokens, diagnostics and CST formatting all come back as plain objects.
+                </p>
+                <ul class="checks">
+                    <li v-for="item in capabilities" :key="item.id">{{ item.label }}</li>
+                </ul>
+            </div>
+            <pre class="code"><code>{{ sample }}</code></pre>
+        </section>
+
+        <section id="packages" class="block">
+            <h2>What ships</h2>
+            <div class="grid">
+                <article v-for="pkg in packages" :key="pkg.name" class="card">
+                    <code class="card__cmd">{{ pkg.name }}</code>
+                    <p>{{ pkg.description }}</p>
+                </article>
+            </div>
+        </section>
+
+        <footer class="foot">
+            <span>{{ footer }}</span>
+            <span>AGPL-3.0</span>
+        </footer>
+    </main>
+</template>
+<style>
+:root {
+    --ink: #111318;
+    --muted: #5b6472;
+    --line: #e4e7ec;
+    --page: #fbfbfc;
+    --accent: #2b6cb0;
+    --card: #ffffff;
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    background: var(--page);
+    color: var(--ink);
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+.page {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 1.5rem 4rem;
+}
+.bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--line);
+}
+.brand {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    font-size: 1.15rem;
+}
+.bar__nav {
+    display: flex;
+    gap: 1.25rem;
+}
+.bar__nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+.bar__nav a:hover {
+    color: var(--ink);
+}
+.hero {
+    padding: clamp(3rem, 8vw, 6rem) 0 3rem;
+}
+.kicker {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 0 1rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+.dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 999px;
+    background: var(--accent);
+}
+h1 {
+    margin: 0;
+    font-size: clamp(2.4rem, 7vw, 4.6rem);
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+}
+h1 em {
+    font-style: normal;
+    color: var(--accent);
+}
+.lede {
+    max-width: 38rem;
+    margin: 1.5rem 0 0;
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+.actions {
+    display: flex;
+    gap: 0.75rem;
+    margin: 2rem 0 1.5rem;
+}
+.button {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.7rem 1.1rem;
+    border-radius: 0.6rem;
+    font-size: 0.95rem;
+    text-decoration: none;
+    border: 1px solid transparent;
+}
+.button--primary {
+    background: var(--ink);
+    color: #fff;
+}
+.button--ghost {
+    border-color: var(--line);
+    color: var(--ink);
+    background: var(--card);
+}
+.install,
+.code {
+    margin: 0;
+    padding: 1rem 1.1rem;
+    border: 1px solid var(--line);
+    border-radius: 0.75rem;
+    background: var(--card);
+    color: #24292f;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    overflow-x: auto;
+}
+.install {
+    display: inline-block;
+}
+.block {
+    padding: 3rem 0;
+    border-top: 1px solid var(--line);
+}
+.block h2 {
+    margin: 0 0 1.5rem;
+    font-size: 1.5rem;
+    letter-spacing: -0.02em;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+.card {
+    padding: 1.1rem 1.2rem;
+    border: 1px solid var(--line);
+    border-radius: 0.85rem;
+    background: var(--card);
+}
+.card__cmd {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.85rem;
+    color: var(--accent);
+}
+.card p {
+    margin: 0.6rem 0 0;
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+.block--split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 2rem;
+    align-items: start;
+}
+.block--split p {
+    color: var(--muted);
+    line-height: 1.7;
+}
+.checks {
+    margin: 1.25rem 0 0;
+    padding-left: 1.1rem;
+    color: var(--muted);
+    line-height: 1.9;
+}
+.foot {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+@media (max-width: 760px) {
+    .block--split {
+        grid-template-columns: 1fr;
+    }
+    .bar__nav {
+        display: none;
+    }
+}
+</style>
+<script client>
+export default class IndexPage {
+    kicker = "TypeScript language services · Node-API";
+    titleLead = "Parse TypeScript";
+    titleEm = "without leaving Node";
+    lede = "A native binding over Boost language.typescript and data.text.typescript: syntax trees, tokens, diagnostics and CST formatting, packaged for every supported host.";
+    footer = "Built with the VMZ framework.";
+
+    commands = [
+        { name: "parse", line: "typescript parse file.ts", description: "Syntax tree with byte spans for every node and leaf." },
+        { name: "tokens", line: "typescript tokens file.ts", description: "Lexical tokens in source order, ready for tooling." },
+        { name: "check", line: "typescript check src/*.ts", description: "Parser diagnostics for one or many files." },
+        { name: "format", line: "typescript format file.ts", description: "CST formatting that keeps every token text intact." },
+    ];
+
+    capabilities = [
+        { id: "spans", label: "Byte-accurate spans shared by every command" },
+        { id: "diagnostics", label: "Diagnostics surfaced instead of swallowed" },
+        { id: "override", label: "TYPESCRIPT_NATIVE override for validating fresh builds" },
+        { id: "harness", label: "Same addon used by typescript-harness diagnostics" },
+    ];
+
+    sample = "import { parse, check } from '@nyar/typescript';\n\nconst source = 'const x: number = 1;';\nconst outcome = parse(source);\nconsole.log(outcome.ok, outcome.tokenCount);\n\nfor (const message of check(source)) {\n  console.error(message);\n}";
+
+    packages = [
+        { name: "@nyar/typescript", description: "CLI and API surface; pulls the matching platform binding." },
+        { name: "@nyar/typescript-harness", description: "Diagnostics and parse-latency tuning loop." },
+        { name: "@nyar/typescript-skills", description: "Agent guides for parsing and triage workflows." },
+        { name: "@nyar/typescript-<platform>", description: "Prebuilt .node addon for win32, linux and macOS." },
+    ];
+}
+</script>

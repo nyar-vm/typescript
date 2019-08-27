@@ -1,0 +1,48 @@
+{
+    "name": "@nyar/typescript",
+    "version": "0.1.0",
+    "description": "TypeScript language services - parser, tokens, diagnostics and CST formatting (Node-API)",
+    "type": "module",
+    "license": "AGPL-3.0-only",
+    "main": "./dist/index.js",
+    "exports": {
+        ".": "./dist/index.js",
+        "./cli": "./dist/cli/typescript-cli.js",
+        "./native": "./dist/native.js"
+    },
+    "bin": {
+        "typescript": "bin/typescript.mjs"
+    },
+    "files": [
+        "bin",
+        "dist",
+        "src",
+        "locales",
+        "readme.md"
+    ],
+    "dependencies": {
+        "@vmz/commander": "^0.3.18"
+    },
+    "optionalDependencies": {
+        "@nyar/typescript-darwin-arm64": "workspace:*",
+        "@nyar/typescript-darwin-x64": "workspace:*",
+        "@nyar/typescript-linux-x64": "workspace:*",
+        "@nyar/typescript-win32-x64": "workspace:*"
+    },
+    "scripts": {
+        "build": "node ../../../../scripts/build-npm-package-js.mjs packages/typescript.ts/packages/typescript",
+        "prepack": "node ../../../../scripts/build-npm-package-js.mjs packages/typescript.ts/packages/typescript && node ../../../../scripts/prepare-npm-publish.mjs"
+    },
+    "engines": {
+        "node": ">=22.18.0"
+    },
+    "keywords": ["typescript", "parser", "cst", "formatter", "vmz"],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nyar-vm/typescript.git",
+        "directory": "packages/typescript.ts/packages/typescript"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}

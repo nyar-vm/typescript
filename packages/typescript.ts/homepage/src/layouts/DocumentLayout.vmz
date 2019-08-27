@@ -1,0 +1,145 @@
+<template>
+    <div class="docs">
+        <a href="#main" class="skip-link">Skip to content</a>
+        <header class="docs__bar" data-vmz-fixture="site-header">
+            <a class="docs__brand" href="/">TypeScript</a>
+            <nav class="docs__nav">
+                <a href="/">Home</a>
+                <a href="/d/en-us/">English</a>
+                <a href="/d/zh-hans/">简体中文</a>
+            </nav>
+        </header>
+        <div class="docs__body" id="main">
+            <slot />
+        </div>
+        <footer class="docs__foot" data-vmz-fixture="site-footer">
+            <span>@nyar/typescript documentation</span>
+            <span>AGPL-3.0</span>
+        </footer>
+    </div>
+</template>
+<style>
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    background: #fbfbfc;
+    color: #111318;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+.skip-link {
+    position: absolute;
+    left: -9999px;
+}
+.skip-link:focus {
+    left: 1rem;
+    top: 1rem;
+    padding: 0.5rem 0.75rem;
+    background: #111318;
+    color: #fff;
+    border-radius: 0.4rem;
+}
+.docs {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 1.5rem 4rem;
+}
+.docs__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid #e4e7ec;
+}
+.docs__brand {
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: -0.02em;
+    color: #111318;
+    text-decoration: none;
+}
+.docs__nav {
+    display: flex;
+    gap: 1rem;
+}
+.docs__nav a {
+    color: #5b6472;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+.docs__nav a:hover {
+    color: #111318;
+}
+.docs__body {
+    padding: 2.5rem 0 3rem;
+    line-height: 1.75;
+}
+.docs__body h1 {
+    font-size: clamp(1.9rem, 4vw, 2.6rem);
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    margin: 0 0 1rem;
+}
+.docs__body h2 {
+    margin: 2.2rem 0 0.8rem;
+    font-size: 1.35rem;
+    letter-spacing: -0.02em;
+}
+.docs__body h3 {
+    margin: 1.6rem 0 0.6rem;
+    font-size: 1.1rem;
+}
+.docs__body p,
+.docs__body li {
+    color: #333a45;
+}
+.docs__body a {
+    color: #2b6cb0;
+}
+.docs__body code {
+    padding: 0.1rem 0.3rem;
+    border-radius: 0.3rem;
+    background: #f0f1f4;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.88em;
+}
+.docs__body pre {
+    padding: 1rem 1.1rem;
+    border: 1px solid #e4e7ec;
+    border-radius: 0.7rem;
+    background: #fff;
+    overflow-x: auto;
+}
+.docs__body pre code {
+    padding: 0;
+    background: none;
+    font-size: 0.88rem;
+}
+.docs__body table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1rem 0;
+    font-size: 0.92rem;
+}
+.docs__body th,
+.docs__body td {
+    border: 1px solid #e4e7ec;
+    padding: 0.5rem 0.7rem;
+    text-align: left;
+}
+.docs__body th {
+    background: #f6f7f9;
+}
+.docs__foot {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e4e7ec;
+    color: #5b6472;
+    font-size: 0.85rem;
+}
+</style>
+<script client>
+export default class DocumentLayout {}
+</script>

@@ -1,0 +1,13 @@
+{
+    "private": true,
+    "scripts": {
+        "check": "cargo check --workspace",
+        "test": "cargo test --release --workspace",
+        "fmt": "cargo fmt --all",
+        "build:napi": "node scripts/build.mjs napi",
+        "build:js": "node scripts/build-npm-package-js.mjs",
+        "build": "pnpm build:napi && pnpm build:js",
+        "u": "cargo upgrade --incompatible"
+    },
+    "packageManager": "pnpm@10.18.3"
+}

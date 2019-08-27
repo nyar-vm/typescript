@@ -1,0 +1,23 @@
+{
+    "name": "@nyar/typescript-skills",
+    "version": "0.1.0",
+    "description": "Agent Skills for using the TypeScript language services package",
+    "type": "module",
+    "license": "AGPL-3.0-only",
+    "files": [
+        "skills",
+        "README.md"
+    ],
+    "scripts": {
+        "typecheck": "node -e \"console.log('docs-only skill package')\""
+    },
+    "keywords": ["typescript", "skills", "agent", "language-services"],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nyar-vm/typescript.git",
+        "directory": "packages/typescript.ts/packages/typescript-skills"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}

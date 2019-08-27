@@ -1,0 +1,5 @@
+lib/
+*.node
+typescript_napi.dll
+libtypescript_napi.so
+libtypescript_napi.dylib

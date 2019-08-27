@@ -1,0 +1,8 @@
+{
+    "harness.intro": "Diagnostics and tuning for the TypeScript language services binding.",
+    "harness.cmd.version": "Print the typescript-napi binding version.",
+    "harness.cmd.check": "Parse files and report diagnostics plus token totals.",
+    "harness.cmd.bench": "Measure repeated parse latency for one file.",
+    "harness.cmd.tokens": "Count tokens by kind for one file.",
+    "harness.opt.iterations": "Number of parse iterations (default: 100)."
+}
